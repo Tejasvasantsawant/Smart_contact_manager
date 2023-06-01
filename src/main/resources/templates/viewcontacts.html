@@ -1,0 +1,28 @@
+<html>
+<head>
+    <!-- Add the necessary styles and scripts -->
+</head>
+<body>
+    <h1>Contacts</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+        
+            <tr th:each="i :${contact}">
+                <td th:text="${i.name}"></td>
+                <td th:text="${i.email}"></td>
+                <td th:text="${i.phone}"></td>
+                <td>
+                   <a th:href="@{../editContact/{cid}(cid=${i.cid})}" >update</a>
+                   <a th:href="@{../delete/{cid}(cid=${i.cid})}">delete</a>
+                  
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="height:1500px">
+	<section>
+		<nav class="navbar navbar-light bg-light">		
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 offset-md-2">
+						
+						<div class="my-card">
+							
+							<img style="width:70px" src="" th:src="@{../img/edit.png}" th:object="${contact}">
+						
+						<center><h1 class="text-center">Signup here</h1></center>
+						
+						<form th:action="@{../updateContact/{cid}(cid=${c.getCid()})}" method="post">
+							
+							<div class="mb-3">
+								
+                            <label for="name_field" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" name="name" id="name_field" aria-describedby="emailHelp" placeholder="Enter Here" required th:value="${c.getName()}">
+                            <p th:text="${msg}"></p>
+                           
+                            </div>
+                           
+                            
+                            <div class="mb-3">
+								
+                            <label for="email_field" class="form-label">Your E-Mail</label>
+                            <input type="email" name="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Enter Here" required th:value="${c.getEmail()}">
+                            
+                           
+                            </div>
+                           
+                            <div class="mb-3">
+								
+                            <label for="con_field" class="form-label">Your Contact</label>
+                            <input type="number" name="phone" class="form-control" id="con_field" aria-describedby="emailHelp" placeholder="Enter Here" required th:value="${c.getPhone()}">
+                           
+                           
+                            </div>
+                           
+                          
+                            
+                           
+                           
+                            
+                            
+                     
+							<div class="container text-center">
+							
+							<input type="submit" class="btn btn-primary">
+								Update
+								
+							</input>
+							
+							<input type="reset" class="btn btn-primary">
+								Reset
+								
+							</input>
+							</div>
+
+
+							
+							
+							
+						</form>
+						</div>
+					</div>
+					<p th:text="${msg}"></p>
+				
+				</div>
+				
+				
+			</div>
+</nav>
+			</section>
+
+</body>
+</html>
